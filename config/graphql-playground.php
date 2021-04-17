@@ -14,8 +14,8 @@ return [
     */
 
     'route' => [
-        'uri' => '/graphql-playground',
-        'name' => 'graphql-playground',
+        'uri' => '/playground',
+        'name' => 'playground',
         // 'middleware' => ['web']
         // 'prefix' => '',
         // 'domain' => 'graphql.' . env('APP_DOMAIN', 'localhost'),

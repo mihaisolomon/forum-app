@@ -102,13 +102,14 @@ return [
     'schemas' => [
         'default' => [
             'query' => [
-                // ExampleQuery::class,
+                'user' => App\GraphQL\Queries\UserQuery::class,
+                'users' => App\GraphQL\Queries\UsersQuery::class,
             ],
             'mutation' => [
-                // ExampleMutation::class,
+                'createUser' => App\GraphQL\Mutations\CreateUserMutation::class,
             ],
             'types' => [
-                // ExampleType::class,
+                'User' => App\GraphQL\Types\UserType::class,
             ],
             'middleware' => [],
             'method' => ['get', 'post'],
