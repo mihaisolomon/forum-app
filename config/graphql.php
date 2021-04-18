@@ -1,6 +1,6 @@
 <?php
 
-declare(strict_types = 1);
+declare(strict_types=1);
 
 return [
     // The prefix for routes
@@ -99,21 +99,10 @@ return [
     //      ],
     //  ]
     //
+    'schema' => 'user',
     'schemas' => [
-        'default' => [
-            'query' => [
-                'user' => App\GraphQL\Queries\UserQuery::class,
-                'users' => App\GraphQL\Queries\UsersQuery::class,
-            ],
-            'mutation' => [
-                'createUser' => App\GraphQL\Mutations\CreateUserMutation::class,
-            ],
-            'types' => [
-                'User' => App\GraphQL\Types\UserType::class,
-            ],
-            'middleware' => [],
-            'method' => ['get', 'post'],
-        ],
+        'default' => \App\GraphQL\Schemas\DefaultSchema::class,
+        'auth' => \App\GraphQL\Schemas\AuthSchema::class,
     ],
 
     // The types available in the application. You can then access it from the

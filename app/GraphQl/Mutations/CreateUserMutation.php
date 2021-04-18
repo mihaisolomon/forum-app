@@ -6,6 +6,7 @@ use GraphQL;
 use GraphQL\Type\Definition\Type;
 use Closure;
 use GraphQL\Type\Definition\ResolveInfo;
+use Illuminate\Support\Facades\Hash;
 use Rebing\GraphQL\Support\Mutation;
 
 class CreateUserMutation extends Mutation
@@ -31,6 +32,8 @@ class CreateUserMutation extends Mutation
     public function resolve($root, $args, $context, ResolveInfo $resolveInfo, Closure $getSelectFields)
     {
         $user = new User();
+
+        $args['password'] = Hash::make($args['password']);
 
         $user->fill($args);
         $user->save();
