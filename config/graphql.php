@@ -2,6 +2,10 @@
 
 declare(strict_types=1);
 
+use App\GraphQl\Types\Forum\Channel;
+use App\GraphQl\Types\Forum\Reply;
+use App\GraphQl\Types\Forum\Thread;
+
 return [
     // The prefix for routes
     'prefix' => 'graphql',
@@ -118,6 +122,9 @@ return [
         // ExampleType::class,
         // ExampleRelationType::class,
         // \Rebing\GraphQL\Support\UploadType::class,
+        'Channel' => Channel::class,
+        'Thread' => Thread::class,
+        'Reply' => Reply::class,
     ],
 
     // The types will be loaded on demand. Default is to load all types on each request

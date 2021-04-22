@@ -28,10 +28,7 @@ class Me extends Query
     public function args(): array
     {
         return [
-            'id'    => [
-                'name' => 'id',
-                'type' => Type::int(),
-            ],
+
         ];
     }
 }
