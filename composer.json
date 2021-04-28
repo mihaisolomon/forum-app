@@ -13,7 +13,8 @@
         "laravel/passport": "^10.1",
         "laravel/tinker": "^2.5",
         "mll-lab/laravel-graphql-playground": "^2.5",
-        "rebing/graphql-laravel": "^7.2"
+        "rebing/graphql-laravel": "^7.2",
+        "yab/laravel-scout-mysql-driver": "^4.0"
     },
     "require-dev": {
         "facade/ignition": "^2.5",

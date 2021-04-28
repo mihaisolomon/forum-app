@@ -1,7 +1,6 @@
 <?php
 namespace App\GraphQL\Queries\Profile;
 
-use App\GraphQl\Middleware\Auth;
 use GraphQL\Type\Definition\ResolveInfo;
 use GraphQL\Type\Definition\Type;
 use Laravel\Passport\Http\Middleware\CheckClientCredentials;

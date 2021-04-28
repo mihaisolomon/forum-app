@@ -5,6 +5,7 @@ namespace App\GraphQL\Schemas;
 use App\GraphQL\Mutations\Forum\CreateReplyMutation;
 use App\GraphQL\Mutations\Forum\CreateThreadMutation;
 use App\GraphQL\Queries\Profile\Me;
+use App\GraphQL\Queries\Forum\SearchThreads;
 use App\GraphQl\Types\Forum\Channel;
 use App\GraphQl\Types\Forum\Reply;
 use App\GraphQl\Types\Forum\Thread;
@@ -18,6 +19,7 @@ class AuthSchema implements ConfigConvertible
        return [
            'query' => [
                'myProfile' => Me::class,
+               'searchThreads' => SearchThreads::class
            ],
            'mutation' => [
                'createThread' => CreateThreadMutation::class,
