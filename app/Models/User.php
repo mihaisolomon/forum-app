@@ -5,13 +5,16 @@ namespace App\Models;
 use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Relations\HasMany;
+use Illuminate\Database\Eloquent\Relations\HasOne;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
+use Laravel\Cashier\Billable;
+use Laravel\Cashier\Cashier;
 use Laravel\Passport\HasApiTokens;
 
 class User extends Authenticatable
 {
-    use HasApiTokens, HasFactory, Notifiable;
+    use HasApiTokens, HasFactory, Notifiable, Billable;
 
     /**
      * The attributes that are mass assignable.
@@ -51,5 +54,21 @@ class User extends Authenticatable
     public function replies(): HasMany
     {
         return $this->hasMany(Reply::class);
+    }
+
+    public function country(): HasOne
+    {
+        return $this->hasOne(Country::class);
+    }
+
+    public function stripeOptions(array $options = []): array
+    {
+        $stripeAccount = $this->country()->stripeAccount;
+
+        if ($stripeAccount->secret) {
+            $options['api_key'] = $stripeAccount->secret;
+        }
+
+        return Cashier::stripeOptions($options);
     }
 }

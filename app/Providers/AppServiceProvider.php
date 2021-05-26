@@ -19,6 +19,11 @@ class AppServiceProvider extends ServiceProvider
             ThreadRepositoryInterface::class,
             ThreadRepository::class
         );
+
+        $this->app->bind(
+            \Laravel\Cashier\Http\Controllers\PaymentController::class,
+            \App\Http\Controllers\PaymentController::class
+        );
     }
 
     /**
